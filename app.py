@@ -4,7 +4,7 @@ from worktime import generate_xlsx_result
 
 # App config.
 DEBUG = True
-app = Flask(__name__)
+app = Flask(__name__, static_folder='files')
 app.config.from_object(__name__)
 app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
  
@@ -36,7 +36,7 @@ def hello():
 
 @app.route('/files/<path:path>')
 def send_js(path):
-    return send_from_directory('files', path)
+    return send_from_directory(app.static_folder, path)
 
 
 
