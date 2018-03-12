@@ -38,7 +38,7 @@ def get_holiday_name(date):
 
 def generate_xlsx_result(year, month, name, number):
     
-    filename = 'files/' + str(year) + '-' + str(month).zfill(2) + '-' + name + '.xlsx'
+    filename = 'xlsx/' + str(year) + '-' + str(month).zfill(2) + '-' + name + '.xlsx'
 
    
     num_days = calendar.monthrange(year, month)[1]

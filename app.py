@@ -4,7 +4,7 @@ from worktime import generate_xlsx_result
 
 # App config.
 DEBUG = True
-app = Flask(__name__, static_folder='files')
+app = Flask(__name__)
 app.config.from_object(__name__)
 app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
  
@@ -29,14 +29,14 @@ def hello():
  
         if form.validate():
             # Save the comment here.
-            flash(Markup('報表已經產生: <a href="files/') + file_name + Markup('" class="alert-link">here</a>'))
+            flash(Markup('報表已經產生: <a href="xlsx/') + file_name + Markup('" class="alert-link">here</a>'))
         generate_xlsx_result(int(year), int(month), name, int(number))
  
     return render_template('index.html', form=form)
 
-@app.route('/files/<path:path>')
+@app.route('/xlsx/<path:path>')
 def send_js(path):
-    return send_from_directory(app.static_folder, path)
+    return send_from_directory('xlsx', path)
 
 
 
