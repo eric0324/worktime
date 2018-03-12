@@ -9,10 +9,10 @@ app.config.from_object(__name__)
 app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
  
 class ReusableForm(Form):
-    year = IntegerField('Year (e.g. 2018):', validators=[validators.required()])
-    month = IntegerField('Month (e.g. 2):', validators=[validators.required()])
-    name = TextField('Name (e.g. Tony Tony Chopper ):', validators=[validators.required()])
-    number = IntegerField('Number (e.g. 10):', validators=[validators.required()])
+    year = IntegerField('西元年 (e.g. 2018):', validators=[validators.required()])
+    month = IntegerField('月份 (e.g. 02):', validators=[validators.required()])
+    name = TextField('姓名 (e.g. Tony Tony Chopper ):', validators=[validators.required()])
+    number = IntegerField('編號 (e.g. 10):', validators=[validators.required()])
     
  
 @app.route("/", methods=['GET', 'POST'])
